@@ -57,7 +57,7 @@ int[] CreateArray(int number)
 // ======= 5) также формирует вывод в консоль первоначальный массив "делителей" (сортировка, пропуск нулевых значений)
 // ======= с учетом полученного номера группы
 
-int[] CheckDivision(int[] array, int n, int groupNumber)
+int[] CheckDivision(int[] array, int groupNumber)
 {
     // ======= проверка на делимость без остатка, создание массива "делимых", обнуление значений =======
 
@@ -132,12 +132,15 @@ int n = GetNumber();
 int[] array = CreateArray(n);
 int groupNumber = 1;
 bool flag = CheckIfOnlyZeros(array);
+int count = 0;
 
 while (!flag)
 {
-    array = CheckDivision(array, n, groupNumber);
+    array = CheckDivision(array, groupNumber);
     flag = CheckIfOnlyZeros(array);
     groupNumber++;
     Console.WriteLine();
     Console.WriteLine();
+    count++;
 }
+Console.WriteLine("Quantity of groups: " + count);
